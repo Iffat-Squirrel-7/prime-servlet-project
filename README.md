@@ -53,3 +53,36 @@ public class PrimeCheckServlet extends HttpServlet {
 
 
 <img width="495" height="236" alt="Screenshot 2026-11-01 112101" src="https://github.com/user-attachments/assets/14162d44-2588-405f-9777-4b4d5f78271c" />
+
+
+
+package com.example.demo;
+
+import java.io.*;
+
+import jakarta.servlet.http.*;
+import jakarta.servlet.annotation.*;
+
+@WebServlet(name = "helloServlet", value = "/hello-servlet")
+public class HelloServlet extends HttpServlet {
+    private String message;
+
+    public void init() {
+        message = "Hello World!";
+    }
+
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        response.setContentType("text/html");
+
+        // Hello
+        PrintWriter out = response.getWriter();
+        out.println("<html><body>");
+        out.println("<h1>" + message + "</h1>");
+        out.println("</body></html>");
+    }
+
+    public void destroy() {
+    }
+}
+
+<img width="595" height="315" alt="Screenshot 2026-11-01 105636" src="https://github.com/user-attachments/assets/6592d4c3-c05c-4e88-934a-1778ae775a33" />
